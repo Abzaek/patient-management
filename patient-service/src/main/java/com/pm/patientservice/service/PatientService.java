@@ -21,13 +21,7 @@ public class PatientService {
     public List<PatientResponseDTO> findAll() {
 
         List<Patient> patients = patientRepository.findAll();
-        List<PatientResponseDTO> patientResponseDTOs = new ArrayList<>();
 
-        for (Patient patient : patients) {
-            PatientResponseDTO patientResponseDTO = PatientMapper.toPatientResponseDTO(patient);
-            patientResponseDTOs.add(patientResponseDTO);
-        }
-
-        return patientResponseDTOs;
+        return patients.stream().map(PatientMapper::toPatientResponseDTO).toList();
     }
 }
