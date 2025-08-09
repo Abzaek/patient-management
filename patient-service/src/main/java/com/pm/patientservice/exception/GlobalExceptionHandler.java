@@ -39,4 +39,15 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(NoPatientFoundException.class)
+    public ResponseEntity<Map<String, String>> handleNoPatientFoundException(NoPatientFoundException ex) {
+        Map<String, String> errors = new HashMap<String, String>();
+
+        errors.put("Message", ex.getMessage());
+
+        log.error(ex.getMessage());
+
+        return ResponseEntity.badRequest().body(errors);
+    }
 }

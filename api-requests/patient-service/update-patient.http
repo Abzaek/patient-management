@@ -1,0 +1,12 @@
+### update patient
+PUT http://localhost:4000/patients/223e4567-e89b-12d3-a456-426614174011
+Content-Type: application/json
+
+{
+  "name" : "Abdulazez Updated",
+  "email" : "abza@gmail.com",
+  "dateOfBirth" : "2002-05-25",
+  "address" : "Addis Ababa"
+}
+
+###
